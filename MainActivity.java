@@ -52,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
         recfile_input = (EditText)findViewById(R.id.editText2);
         /*錄音鍵預設不可按*/
         record.setEnabled(false);
+        /*撥放鍵預設不可按*/
+        play_sound.setEnabled(false);
         /*錄音按鍵*/
         record.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -154,8 +156,9 @@ public class MainActivity extends AppCompatActivity {
     }
     /*建立錄音檔案*/
     private void recfile_construct(){
-        //輸入錄音檔案名稱後，重新開啟錄音鍵
+        //輸入錄音檔案名稱後，重新開啟錄音鍵&撥放鍵
         record.setEnabled(true);
+        play_sound.setEnabled(true);
         if(fileIsExists(Environment.getExternalStorageDirectory().getAbsolutePath()+"/"+folder_input.getText().toString()+"/"+"app"+folder_input.getText().toString()+"01_"+recfile_input.getText().toString()+".m4a"))
             Toast.makeText(this,"檔案已存在，錄音將覆蓋原檔案", Toast.LENGTH_SHORT).show();
         else
